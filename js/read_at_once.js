@@ -1,8 +1,8 @@
 
 // add read,unread buttons
 rcmail.addEventListener('init', function(ev){
-    $('#messagelistfooter').prepend('<div id="readcontrols"><input type="checkbox" id="allmark"> CHECK ALL <button class="oncectrbtn" id="readatoncebtn">READ</button><button class="oncectrbtn" id="unreadatoncebtn">UNREAD</button></div>');
-    $('#readcontrols').css('display', 'inline-block');
+    $('#messagelistfooter').prepend('<div id="readbtns"><button class="oncectrbtn" id="readatoncebtn">READ</button><button class="oncectrbtn" id="unreadatoncebtn">UNREAD</button></div>');
+    $('#messagelistfooter').prepend('<div id="readckcontrols"><label for="allmark"><input type="checkbox" id="allmark">CHECK ALL</label></div>');
     // check all
     $('#allmark').on('change', function(){
         $('input[class="cb_atonce"]').prop('checked', this.checked);

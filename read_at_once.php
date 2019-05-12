@@ -7,5 +7,6 @@ class read_at_once extends rcube_plugin
     function init()
     {
         $this->include_script('js/read_at_once.js');
+        $this->include_stylesheet('css/read_at_once.css');
     }
 }
