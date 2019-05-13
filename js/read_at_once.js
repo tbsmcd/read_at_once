@@ -1,7 +1,7 @@
 rcmail.addEventListener('init', function(ev){
     // add read,unread buttons
-    $('#messagelistfooter').prepend('<div id="rao-btns-wrap"><button class="rao-btn" id="rao-read-btn">READ</button><button class="rao-btn" id="rao-unread-btn">UNREAD</button></div>');
-    $('#messagelistfooter').prepend('<div id="rao-checkall-wrap"><label for="rao-checkall"><input type="checkbox" id="rao-checkall">CHECK ALL</label></div>');
+    $('#messagelistfooter').prepend('<div id="rao-btns-wrap"><button class="rao-btn" id="rao-read-btn">' + rcmail.gettext('read', 'read_at_once') + '</button><button class="rao-btn" id="rao-unread-btn">' + rcmail.gettext('unread', 'read_at_once') + '</button></div>');
+    $('#messagelistfooter').prepend('<div id="rao-checkall-wrap"><label for="rao-checkall"><input type="checkbox" id="rao-checkall">' + rcmail.gettext('check_all', 'read_at_once') + '</label></div>');
     // add check all box
     $('#rao-checkall').on('change', function(){
         $('input[class="rao-checkbox"]').prop('checked', this.checked);
