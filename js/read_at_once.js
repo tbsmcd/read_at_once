@@ -1,37 +1,36 @@
-
-// add read,unread buttons
 rcmail.addEventListener('init', function(ev){
-    $('#messagelistfooter').prepend('<div id="readbtns"><button class="oncectrbtn" id="readatoncebtn">READ</button><button class="oncectrbtn" id="unreadatoncebtn">UNREAD</button></div>');
-    $('#messagelistfooter').prepend('<div id="readckcontrols"><label for="allmark"><input type="checkbox" id="allmark">CHECK ALL</label></div>');
-    // check all
-    $('#allmark').on('change', function(){
-        $('input[class="cb_atonce"]').prop('checked', this.checked);
+    // add read,unread buttons
+    $('#messagelistfooter').prepend('<div id="rao-btns-wrap"><button class="rao-btn" id="rao-read-btn">READ</button><button class="rao-btn" id="rao-unread-btn">UNREAD</button></div>');
+    $('#messagelistfooter').prepend('<div id="rao-checkall-wrap"><label for="rao-checkall"><input type="checkbox" id="rao-checkall">CHECK ALL</label></div>');
+    // add check all box
+    $('#rao-checkall').on('change', function(){
+        $('input[class="rao-checkbox"]').prop('checked', this.checked);
     });
-    $('.oncectrbtn').click(function(){
-        ckd = $('[class=cb_atonce]:checked').map(function(){
+
+    $('.rao-btn').click(function(){
+        ckd = $('[class=rao-checkbox]:checked').map(function(){
             return $(this).attr('name');
         }).get();
-        if ($(this).attr('id') == 'readatoncebtn') {
+        if ($(this).attr('id') == 'rao-read-btn') {
             mark = 'read';
         } else {
             mark = 'unread';
         }
         ckd.forEach(function(uid){
-            console.log(uid);
-            rcmail.mark_message(mark, uid)
+            rcmail.mark_message(mark, uid);
         });
     });
-})
+});
 
-// add checkbox
 rcmail.addEventListener('listupdate', function(ev){
-    $('.cb_atonce').remove();
+    // add checkbox
+    $('.rao-checkbox').remove();
     rows = rcmail.message_list.rows;
     ids = {}
     Object.keys(rows).forEach(function(key){
         ids[rows[key]['id']] = rows[key]['uid']; 
     })
     $('#messagelist tbody tr').each(function(){
-        $(this).children('.subject').prepend('<input type="checkbox" name="' + ids[$(this).attr('id')] + '" class="cb_atonce">');
+        $(this).children('.subject').prepend('<input type="checkbox" name="' + ids[$(this).attr('id')] + '" class="rao-checkbox">');
     })
-})
+});
