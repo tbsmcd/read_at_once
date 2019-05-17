@@ -4,3 +4,6 @@
 #rao-btns-wrap {
     display: inline;
 }
+#rao-btns-wrap button {
+    margin: 0 2px 0 2px;
+}
