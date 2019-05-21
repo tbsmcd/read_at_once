@@ -20,6 +20,7 @@ rcmail.addEventListener('init', function(ev){
                 rcmail.mark_message(mark, r[1]);
             }
         });
+        $('.message').removeClass('selected');
     });
 });
 
