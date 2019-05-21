@@ -1,0 +1,15 @@
+{
+  "name": "tbsmcd/read_at_once",
+  "type": "roundcube-plugin",
+  "license": "MIT",
+  "version": "1.0.0",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://plugins.roundcube.net"
+    }
+  ],
+  "require": {
+    "roundcube/plugin-installer": ">=0.1.6"
+  }
+}
